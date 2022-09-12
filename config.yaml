@@ -8,8 +8,6 @@ params:
   banner:
     buttonText: Get Started
     subtitle: | My Website
-      A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
-      AND RELEASED UNDER THE CREATIVE COMMONS.
     title: Hi, my name is Rufei
   blog: {}
   contact:
