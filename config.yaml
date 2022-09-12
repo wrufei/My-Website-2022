@@ -22,9 +22,9 @@ params:
       - email: wang.rfe@gmail.com
         title: Email
     enable: yes
-    phone:
-      - phone: (+44) 7984306814
-        title: Phone
+    #phone:
+      #- phone: (+44) 7984306814
+      #  title: Phone
   custom_css: []
   custom_js: []
   # description: Your description
