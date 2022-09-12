@@ -1,13 +1,13 @@
 baseURL: https://wrufei0525.netlify.app/
 languageCode: en-us
-title: Rufei Wang's Website
+title: Rufei Wang's Portfolio Website
 theme: forty
 googleAnalytics: ''
 disqusShortname: ''
 params:
   banner:
     buttonText: Get Started
-    subtitle: |-
+    subtitle: | My Website
       A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
       AND RELEASED UNDER THE CREATIVE COMMONS.
     title: Hi, my name is Rufei
@@ -16,7 +16,7 @@ params:
     address:
       - city: London
         country: United Kingdom
-        street: Street
+        street: Gloucester Place
         title: Address
     buttonClear: Clear
     buttonSend: Send message
@@ -25,40 +25,40 @@ params:
         title: Email
     enable: yes
     phone:
-      - phone: (000) 000-0000 x1234
+      - phone: (+44) 7984306814
         title: Phone
   custom_css: []
   custom_js: []
-  description: Your description
+  # description: Your description
   error404:
     heading: Page couldn't be found
     text: Please visit [this page](/)
   favicon: favicon.ico
   footer:
-    copyright: Company Name
+  # copyright: Company Name
     enable: yes
     quicklinks:
       - alt: HTML5 UP
         text: 'Design: '
         url: https://www.html5up.net
     social:
-      - icon: fa-twitter
-        label: Twitter
-        url: https://www.twitter.com
-      - icon: fa-facebook
-        label: Facebook
-        url: https://www.facebook.com
+    #  - icon: fa-twitter
+    #    label: Twitter
+    #   url: https://www.twitter.com
+     # - icon: fa-facebook
+      #  label: Facebook
+       # url: https://www.facebook.com
       - icon: fa-instagram
         label: Instagram
-        url: https://www.instagram.com
+        url: https://www.instagram.com/wrufei/
       - icon: fa-github
         label: GitHub
-        url: https://www.github.com
+        url:  https://github.com/wrufei
       - icon: fa-linkedin
         label: LinkedIn
         url: https://www.linkedin.com/in/rufei-wang-900a30159
   image: ''
-  name: Your name
+  name: Rufei Wang
   navigation:
     button1:
       - name: Get Started
@@ -81,7 +81,7 @@ params:
   tiles:
     enable: yes
     showcase:
-      - image: pic01.jpg
+      - image: lbs.jpg
         subtitle: Ipsum Dolor Sit Amet
         title: Aliquam
         url: blogs/aliquam
