@@ -7,7 +7,7 @@ disqusShortname: ''
 params:
   banner:
     buttonText: Get Started
-    subtitle: | My Website
+    subtitle: 
     title: Hi, my name is Rufei
   blog: {}
   contact:
