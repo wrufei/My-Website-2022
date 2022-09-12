@@ -40,9 +40,9 @@ params:
         text: 'Design: '
         url: https://www.html5up.net
     social:
-      - icon: fa-twitter
-        label: Twitter
-        url: https://twitter.com/emilywrf0525
+      # - icon: fa-twitter
+      #  label: Twitter
+      #   url: https://twitter.com/emilywrf0525
       - icon: fa-facebook
         label: Facebook
         url: https://www.facebook.com/profile.php?id=100010710993221&sk=about
