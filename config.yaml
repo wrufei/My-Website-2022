@@ -86,7 +86,7 @@ params:
       - image: pic06.jpg
         subtitle: Snowboarder, Skateboarder, Drummer, Basketballer, Self-Taught Bartender and MORE
         title: Hobbies and Lifestyle
-        url: blogs/Hobbies_and_Lifestyle
+        url: blogs/hobbies_and_lifestyle
       - image: lbs.jpg
         subtitle: MAM at LBS & BSc Economics at LSE
         title: University Life in London
@@ -98,11 +98,11 @@ params:
       - image: pic04.jpg
         subtitle: Gender Pay Gap Investigation
         title: Project Showcase II 
-        url: blogs/ipsum
+        url: blogs/hobbies_and_lifestyle
       - image: pic05.jpg
         subtitle: 
         title: My Travel Gallery
-        url: blogs/ipsum
+        url: blogs/hobbies_and_lifestyle
 
   two:
     buttonText: Get Started
