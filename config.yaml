@@ -89,7 +89,7 @@ params:
         url: blogs/ipsum
       - image: lbs.jpg
         subtitle: MAM at LBS & BSc Economics at LSE
-        title: 
+        title: University Life in London
         url: blogs/aliquam
       - image: pic03.jpg
         subtitle: Financial Stock Returns Using .Package
