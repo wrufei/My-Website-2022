@@ -6,9 +6,9 @@ googleAnalytics: ''
 disqusShortname: ''
 params:
   banner:
-    buttonText: Get Started
+    buttonText: GET TO KNOW ME
     subtitle: 
-    title: Hi, my name is Rufei
+    title: Rufei Wang's Portfolio Webstie
   blog: {}
   contact:
     address:
@@ -22,9 +22,9 @@ params:
       - email: wang.rfe@gmail.com
         title: Email
     enable: yes
-    #phone:
-      #- phone: (+44) 7984306814
-      #  title: Phone
+    phone:
+      - phone: 
+        title: Phone
   custom_css: []
   custom_js: []
   # description: Your description
@@ -43,18 +43,18 @@ params:
       # - icon: fa-twitter
       #  label: Twitter
       #   url: https://twitter.com/emilywrf0525
-      - icon: fa-facebook
-        label: Facebook
-        url: https://www.facebook.com/profile.php?id=100010710993221&sk=about
-      - icon: fa-instagram
-        label: Instagram
-        url: https://www.instagram.com/wrufei/
-      - icon: fa-github
-        label: GitHub
-        url:  https://github.com/wrufei
       - icon: fa-linkedin
         label: LinkedIn
         url: https://www.linkedin.com/in/rufei-wang-900a30159
+      - icon: fa-instagram
+        label: Instagram
+        url: https://www.instagram.com/wrufei/
+      - icon: fa-facebook
+        label: Facebook
+        url: https://www.facebook.com/profile.php?id=100010710993221&sk=about
+      - icon: fa-github
+        label: GitHub
+        url:  https://github.com/wrufei
   image: ''
   name: Rufei Wang
   navigation:
@@ -62,7 +62,7 @@ params:
       - name: Get Started
         url: blogs
     button2:
-      - name: Log In
+      - name: My CV
         url: '#'
     links:
       - name: Home
