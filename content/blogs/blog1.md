@@ -7,7 +7,6 @@ description: ""
 draft: false
 image: pic10.jpg
 keywords: ""
-slug: Hobbies and Lifestyle
+slug: Hobbies_and_Lifestyle
 title: Hobbies and Lifestyle
 ---
-
