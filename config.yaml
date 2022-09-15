@@ -6,9 +6,9 @@ googleAnalytics: ''
 disqusShortname: ''
 params:
   banner:
-    buttonText: GET TO KNOW ME
+    buttonText: Get Started
     subtitle: 
-    title: Rufei Wang's Portfolio Webstie
+    title: Rufei Wang's Website
   blog: {}
   contact:
     address:
@@ -35,10 +35,10 @@ params:
   footer:
   # copyright: Company Name
     enable: yes
-    quicklinks:
-      - alt: HTML5 UP
-        text: 'Design: '
-        url: https://www.html5up.net
+   # quicklinks:
+     # - alt: HTML5 UP
+      #  text: 'Design: '
+      #  url: https://www.html5up.net
     social:
       # - icon: fa-twitter
       #  label: Twitter
@@ -56,7 +56,7 @@ params:
         label: GitHub
         url:  https://github.com/wrufei
   image: ''
-  name: Rufei Wang
+  name: 
   navigation:
     button1:
       - name: Get Started
@@ -79,30 +79,31 @@ params:
   tiles:
     enable: yes
     showcase:
-      - image: lbs.jpg
-        subtitle: Ipsum Dolor Sit Amet
-        title: London Business School
-        url: blogs/aliquam
       - image: pic02.jpg
-        subtitle: Feugiat Amet Tempus
-        title: Tempus
+        subtitle: My CV, Academic Background, Work Experience and MORE
+        title: About Me
         url: blogs/tempus
+      - image: pic06.jpg
+        subtitle: Snowboarder, Skateboarder, Drummer, Basketballer, Self-Taught Bartender and MORE
+        title: Hobbies and Lifestyle
+        url: blogs/ipsum
+      - image: lbs.jpg
+        subtitle: MAM at LBS & BSc Economics at LSE
+        title: 
+        url: blogs/aliquam
       - image: pic03.jpg
-        subtitle: Lorem Etiam Nullam
-        title: Magna
+        subtitle: Financial Stock Returns Using .Package
+        title: Project Showcase I  
         url: blogs/magna
       - image: pic04.jpg
-        subtitle: Nisl Sed Aliquam
-        title: Ipsum
+        subtitle: Gender Pay Gap Investigation
+        title: Project Showcase II 
         url: blogs/ipsum
       - image: pic05.jpg
-        subtitle: Ipsum Dolor Sit Amet
-        title: Consequat
+        subtitle: 
+        title: My Travel Gallery
         url: blogs/ipsum
-      - image: pic06.jpg
-        subtitle: Feugiat Amet Tempus
-        title: Etiam
-        url: blogs/ipsum
+
   two:
     buttonText: Get Started
     enable: yes
