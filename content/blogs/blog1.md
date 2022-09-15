@@ -11,4 +11,3 @@ slug: Hobbies and Lifestyle
 title: Hobbies and Lifestyle
 ---
 
-I am a snowboarder.
