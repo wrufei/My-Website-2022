@@ -87,21 +87,21 @@ params:
         subtitle: Snowboarder, Skateboarder, Drummer, Basketballer, Self-Taught Bartender and MORE
         title: Hobbies and Lifestyle
         url: blogs/risk_return
+      - image: pic03.jpg
+        subtitle: Analysis of Movie Ratings Using IMDB Dataset
+        title: Data Analytic Project Showcase I
+        url: blogs/magna
+      - image: pic04.jpg
+        subtitle: Share of Renewable Energy Production Globally
+        title: Data Analytic Project Showcase II
+        url: blogs/hobbies_and_lifestyle
       - image: lbs.jpg
         subtitle: MAM at LBS & BSc Economics at LSE
         title: University Life in London
         url: blogs/aliquam
-      - image: pic03.jpg
-        subtitle: Financial Stock Returns Using .Package
-        title: Project Showcase I  
-        url: blogs/magna
-      - image: pic04.jpg
-        subtitle: Gender Pay Gap Investigation
-        title: Project Showcase II 
-        url: blogs/hobbies_and_lifestyle
       - image: pic05.jpg
         subtitle: 
-        title: My Travel Gallery
+        title: Travel Gallery
         url: blogs/hobbies_and_lifestyle
 
   two:
