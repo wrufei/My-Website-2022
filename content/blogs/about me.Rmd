@@ -1,0 +1,23 @@
+---
+categories:
+- "1234"
+- "abcd"
+date: "2022-09-18"
+description: Hi, My Name is Rufei Wang
+draft: false
+image: rufeiwang.jpg
+keywords: "Education, Work Experience, Curriculum Vitae"
+slug: about_me
+title: Hi, My Name is Rufei Wang
+---
+
+## Education Background 
+
+For my undergraduate, I studied *MSc Economics* at **LSE**.  I came to the UK for education since 16.  I did my A-levels at **Oundle**.\
+[LinkedIn Profile](https://www.linkedin.com/in/rufei-wang-900a30159)
+
+## Work Experience
+
+I am very sporty and I love outdoor activities.  The sports that I enjoy doing include:  - snowboarding - skiing - squash - basketball
+
+## Curriculum Vitae

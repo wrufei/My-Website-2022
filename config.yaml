@@ -100,8 +100,8 @@ params:
         title: University Life in London
         url: blogs/aliquam
       - image: pic05.jpg
-        subtitle: 
-        title: Travel Gallery
+        subtitle: Photos of landscape and people taken while travelling
+        title: Photo Gallery
         url: blogs/hobbies_and_lifestyle
 
   two:
