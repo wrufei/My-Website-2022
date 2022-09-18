@@ -90,7 +90,7 @@ params:
       - image: pic03.jpg
         subtitle: Analysis of Movie Ratings Using IMDB Dataset
         title: Data Analytic Project Showcase I
-        url: blogs/magna
+        url: blogs/project1
       - image: pic04.jpg
         subtitle: Share of Renewable Energy Production
         title: Data Analytic Project Showcase II
