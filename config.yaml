@@ -82,7 +82,7 @@ params:
       - image: pic02.jpg
         subtitle: My CV, Academic Background, Work Experience and MORE
         title: About Me
-        url: blogs/tempus
+        url: blogs/about_me
       - image: pic06.jpg
         subtitle: Snowboarder, Skateboarder, Drummer, Basketballer, Self-Taught Bartender and MORE
         title: Hobbies and Lifestyle
