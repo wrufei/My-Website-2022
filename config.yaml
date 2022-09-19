@@ -86,7 +86,7 @@ params:
       - image: pic06.jpg
         subtitle: Snowboarder, Skateboarder, Drummer, Basketballer, Self-Taught Bartender and MORE
         title: Hobbies and Lifestyle
-        url: blogs/risk_return
+        url: blogs/hobbies_and_lifestyle
       - image: pic03.jpg
         subtitle: Analysis of Movie Ratings Using IMDB Dataset
         title: Data Analytic Project Showcase I

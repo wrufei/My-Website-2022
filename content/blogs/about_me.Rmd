@@ -5,8 +5,7 @@ categories:
 date: "2022-09-18"
 description: Hi, My Name is Rufei Wang
 draft: false
-image: "rufeiwang.jpg
-"
+image: "rufeiwang.jpg"
 keywords: "Education, Work Experience, Curriculum Vitae"
 slug: about_me
 title: Hi, My Name is Rufei Wang
@@ -27,3 +26,4 @@ I am sporty and love outdoor activities. The sports that I enjoy doing include s
 ## Curriculum Vitae
 
 [click to download](https://drive.google.com/file/d/1V208ZzLPAV2wnoXujwOyCp3WMrq6UJzy/view?usp=sharing)
+
