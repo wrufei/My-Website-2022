@@ -102,7 +102,7 @@ params:
       - image: lbs.jpg
         subtitle: MAM at LBS & BSc Economics at LSE
         title: University Life in London
-        url: blogs/aliquam  
+        url: blogs/uni_life_london 
         
   two:
     buttonText: Get Started
