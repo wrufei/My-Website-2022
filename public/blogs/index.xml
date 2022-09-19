@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lifestyle on Rufei Wang&#39;s Portfolio Website</title>
+    <link>https://wrufei0525.netlify.app/blogs/</link>
+    <description>Recent content in Lifestyle on Rufei Wang&#39;s Portfolio Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 31 Oct 2017 22:27:21 -0500</lastBuildDate><atom:link href="https://wrufei0525.netlify.app/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analysis of Movie Ratings Using IMDB Data</title>
+      <link>https://wrufei0525.netlify.app/blogs/project1/</link>
+      <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wrufei0525.netlify.app/blogs/project1/</guid>
+      <description>Analysis of movies- IMDB dataset We will look at a subset sample of movies, taken from the Kaggle IMDB 5000 movie dataset
+movies &amp;lt;- read_csv(here::here(&amp;quot;movies.csv&amp;quot;)) glimpse(movies) ## Rows: 2,961 ## Columns: 11 ## $ title &amp;lt;chr&amp;gt; &amp;quot;Avatar&amp;quot;, &amp;quot;Titanic&amp;quot;, &amp;quot;Jurassic World&amp;quot;, &amp;quot;The Avenge… ## $ genre &amp;lt;chr&amp;gt; &amp;quot;Action&amp;quot;, &amp;quot;Drama&amp;quot;, &amp;quot;Action&amp;quot;, &amp;quot;Action&amp;quot;, &amp;quot;Action&amp;quot;, &amp;quot;… ## $ director &amp;lt;chr&amp;gt; &amp;quot;James Cameron&amp;quot;, &amp;quot;James Cameron&amp;quot;, &amp;quot;Colin Trevorrow… ## $ year &amp;lt;dbl&amp;gt; 2009, 1997, 2015, 2012, 2008, 1999, 1977, 2015, 20… ## $ duration &amp;lt;dbl&amp;gt; 178, 194, 124, 173, 152, 136, 125, 141, 164, 93, 1… ## $ gross &amp;lt;dbl&amp;gt; 7.</description>
+    </item>
+    
+    <item>
+      <title>Hobbies and Lifestyle</title>
+      <link>https://wrufei0525.netlify.app/blogs/hobbies_and_lifestyle/</link>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wrufei0525.netlify.app/blogs/hobbies_and_lifestyle/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
+    </item>
+    
+    <item>
+      <title>Risk-Return of DJIA stocks</title>
+      <link>https://wrufei0525.netlify.app/blogs/risk_return/</link>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wrufei0525.netlify.app/blogs/risk_return/</guid>
+      <description>Returns of financial stocks Next, let’s choose the Dow Jones Industrial Average (DJIA) stocks and their ticker symbols and download some data. Besides the thirty stocks that make up the DJIA, we will also add SPY which is an SP500 ETF (Exchange Traded Fund).
+We will use the rvest package to scrape the Wikipedia page for the constituents of DJIA
+djia_url &amp;lt;- &amp;quot;https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average&amp;quot; #get tables that exist on URL tables &amp;lt;- djia_url %&amp;gt;% read_html() %&amp;gt;% html_nodes(css=&amp;quot;table&amp;quot;) # parse HTML tables into a dataframe called djia.</description>
+    </item>
+    
+    <item>
+      <title>Aliquam</title>
+      <link>https://wrufei0525.netlify.app/blogs/aliquam/</link>
+      <pubDate>Tue, 31 Oct 2017 22:42:51 -0500</pubDate>
+      
+      <guid>https://wrufei0525.netlify.app/blogs/aliquam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tempus</title>
+      <link>https://wrufei0525.netlify.app/blogs/tempus/</link>
+      <pubDate>Tue, 31 Oct 2017 22:26:13 -0500</pubDate>
+      
+      <guid>https://wrufei0525.netlify.app/blogs/tempus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Magna</title>
+      <link>https://wrufei0525.netlify.app/blogs/magna/</link>
+      <pubDate>Tue, 31 Oct 2017 22:26:09 -0500</pubDate>
+      
+      <guid>https://wrufei0525.netlify.app/blogs/magna/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hobbies and Lifestyle</title>
+      <link>https://wrufei0525.netlify.app/blogs/hobbies_and_lifestyle/</link>
+      <pubDate>Tue, 31 Oct 2017 21:28:43 -0500</pubDate>
+      
+      <guid>https://wrufei0525.netlify.app/blogs/hobbies_and_lifestyle/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
