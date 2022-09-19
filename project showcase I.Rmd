@@ -40,7 +40,6 @@ library(vroom)
 library(tidyquant)
 ```
 
-
 # Analysis of movies- IMDB dataset
 
 We will look at a subset sample of movies, taken from the [Kaggle IMDB 5000 movie dataset](https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset)
