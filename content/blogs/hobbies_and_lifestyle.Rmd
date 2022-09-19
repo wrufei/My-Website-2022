@@ -15,6 +15,7 @@ title: Hobbies and Lifestyle
 
 ```{r snowbaording, echo = FALSE, out.width = "1200px", out.height= "675px"}
 knitr::include_graphics("/img/pic12.jpg",error=FALSE)
+knitr::include_graphics("/img/pic16.jpg",error=FALSE)
 ```
 
 ## Skateboarding

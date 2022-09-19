@@ -94,11 +94,11 @@ params:
       - image: pic04.jpg
         subtitle: Share of Renewable Energy Production
         title: Data Analytic Project Showcase II
-        url: blogs/hobbies_and_lifestyle
+        url: blogs/project2
       - image: pic05.jpg
-        subtitle: 
-        title: TFL
-        url: blogs/hobbies_and_lifestyle
+        subtitle: Excess Rentals in TfL Bike Sharing
+        title: Data Analytic Project Showcase III
+        url: blogs/project3
       - image: lbs.jpg
         subtitle: MAM at LBS & BSc Economics at LSE
         title: University Life in London

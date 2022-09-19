@@ -38,9 +38,20 @@ library(skimr)
 library(janitor)
 library(vroom)
 library(tidyquant)
+library(infer)
 ```
 
-## Loading and Inspecting the IMDB dataset
+## Summary of the Project
+
+1.  Import and inspect the IMDB dataset using skimr and dplyr package functions.
+
+2.  Clean the data set and conduct exploratory data analysis (EDA).
+
+3.  Use ggplot2 package functions to visualize relationships between variables of interest. We want to investigate the relationship between gross earnings in the US box office [gross] and the number of facebook likes cast members received [likes], IMDB average rating [ratings] and the movie's budget [budget] respectively.
+
+4.  An investigation into whether the mean IMDB ratings for movie director Steven Spielberg and Tim Burton are the same or not.
+
+## Importing and Inspecting the IMDB Dataset
 
 We looked at a subset sample of movies, taken from the [Kaggle IMDB 5000 movie dataset](https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset)
 
@@ -63,9 +74,9 @@ Besides the obvious variables of `title`, `genre`, `director`, `year`, and `dura
 
 ## Data Cleaning
 
-1.  There is no missing values, if we use is.na(movies) to check. There are 54 duplicate entries.
+1.  Firstly, check for missing values and duplicated entries. There is no missing values, if we use is.na(movies) to check. There are 54 duplicate entries.
 
-2.  Produce a table with the count of movies by genre, ranked in descending order
+2.  Make a table with the count of movies by genre, ranked in descending order
 
     ```{r, count_of_movies_by_genre}
     count_of_movies_by_genre <- movies %>% 
@@ -87,11 +98,12 @@ Besides the obvious variables of `title`, `genre`, `director`, `year`, and `dura
     # calculating return_on_budget
     return_on_budget <- avg_gross_budget_by_genre %>% 
       mutate(return_on_budget = avg_gross/avg_budget) %>% 
-      select(return_on_budget) %>% 
+      select(genre, return_on_budget) %>% 
       arrange(desc(return_on_budget))
+
     ```
 
-4.  Produce a table that shows the top 15 directors who have created the highest gross revenue in the box office. Don't just show the total gross amount, but also the mean, median, and standard deviation per director.
+4.  Produce a table that shows the top 15 directors who have created the highest gross revenue in the box office. Showing the total gross amount, as well as the mean, median, and standard deviation per director.
 
     ```{r}
     movies %>% 
@@ -100,7 +112,7 @@ Besides the obvious variables of `title`, `genre`, `director`, `year`, and `dura
       slice_max(n=15,order_by=gross_rev)
     ```
 
-5.  Finally, ratings. Produce a table that describes how ratings are distributed by genre. We don't want just the mean, but also, min, max, median, SD and some kind of a histogram or density graph that visually shows how ratings are distributed.
+5.  Finally, ratings. Produce a table that describes how ratings are distributed by genre. Find the mean, min, max, median, SD and draw a graph to show how ratings are distributed.
 
     ```{r, ratings}
     ratings_table <- movies %>% 
@@ -109,44 +121,55 @@ Besides the obvious variables of `title`, `genre`, `director`, `year`, and `dura
 
     # density graph of rating distribution
     ggplot(movies) +
-      aes(x=rating) +
-      geom_density() +
+      aes(x=rating, colour = genre) +
+      geom_density(size = 1.3) +
+      facet_wrap(~genre) +
       theme_bw(base_size = 18) +
-      labs(title = "Rating Distribution",
+      labs(title = "Distribution of IMDB Ratings by Film Genre ",
            x = NULL, 
            y = NULL, 
-           caption = "Source: Kaggle IMDB 5000 movie dataset")
+           caption = "Source: Kaggle IMDB 5000 Movie Dataset") +
+       theme(legend.position = "NONE")
     ```
 
-## Use `ggplot` to answer the following
+## Examine the Relationship of Variables of Interest
 
--   Examine the relationship between `gross` and `cast_facebook_likes`. Produce a scatterplot and write one sentence discussing whether the number of facebook likes that the cast has received is likely to be a good predictor of how much money a movie will make at the box office. What variable are you going to map to the Y- and X- axes?
+-   Examine the relationship between `gross` and `cast_facebook_likes`.
+-   The scatter plot below shows that there is a slight positive correlation between 'gross' and 'cast_facebook_like', although there exist many outliers, such as when likes is less than 100. Therefore, the cast is not likely to be a good predictor. However, many data points lies outside the a line of best fit, therefore, we cannot say with good confidence that it is a good predictor.
 
 ```{r, gross_on_fblikes}
 
 ggplot(movies) +
   aes(x = cast_facebook_likes, y = gross) +
   geom_point(size=3) +
-  geom_smooth(method='lm')
-  labs (x = "Number of Likes for Cast on Faceboook", y = "Gross Earnings in the US Box Office") +
+  geom_smooth(method='lm') +
+  labs (title = "Relationship Between 'gross' and 'cast_facebook_likes'",
+        x = "Number of Likes for Cast on Faceboook", 
+        y = "Gross Earnings in the US Box Office",
+        caption = "Source: Kaggle IMDB 5000 Movie Dataset") + 
   theme_classic(base_size = 18) +
   scale_x_log10()
 
 ```
 
--   Examine the relationship between `gross` and `budget`. Produce a scatterplot and write one sentence discussing whether budget is likely to be a good predictor of how much money a movie will make at the box office.
+-   Examine the relationship between `gross` and `budget`.
+-   Budget appears to be a good predictor of gross, since the graph shows a positive correlation. Although when the budget is less than 1 million dollars, it is not a good predictor.
 
 ```{r, gross_on_budget}
 ggplot(movies) + 
   aes(x=budget, y=gross) + 
-    geom_point(size =3) + 
-    geom_smooth(method='lm', se=FALSE)+ 
+  geom_point(size =3) + 
+  geom_smooth(method='lm', se=FALSE) +
   scale_x_log10() + 
-    labs(title='relationship between budget and gross') +
+  labs(title = "Relationship Between 'gross' and 'budget'",
+        x = "The Movie's Budget", 
+        y = "Gross Earnings in the US Box Office",
+        caption = "Source: Kaggle IMDB 5000 Movie Dataset") +
   theme_bw(base_size=18)
 ```
 
--   Examine the relationship between `gross` and `rating`. Produce a scatterplot, faceted by `genre` and discuss whether IMDB ratings are likely to be a good predictor of how much money a movie will make at the box office. Is there anything strange in this dataset?
+-   Examine the relationship between `gross` and `rating`.
+-   Generally, some genre have much more rating than others,for instance, crime, documentary, and mystery. The others, however, have significantly less reviews. For those with high numbers of reviews, such as Action, Adventure, there exist positive correlation between gross and rating which makes IMDB rating a good predictor for those movies.
 
 ```{r, gross_on_rating}
 ggplot(movies) + 
@@ -155,7 +178,84 @@ ggplot(movies) +
   facet_wrap(~genre) +
   labs(title = 'Relationship Between Rating and Gross Revenue By Genre' , 
        x = NULL,
-       y = NULL) +
+       y = NULL,
+       caption = "Source: Kaggle IMDB 5000 Movie Dataset") +
   theme_bw(base_size=18) +
   theme(legend.position = "none") 
+```
+
+## Differences Between the Mean IMDB Ratings for Steven Spielberg and Tim Burton
+
+Null Hypothesis: IMDB mean rating is the same for SS and TB. difference in m =0 Alternative hypothesis: difference in mean is not equal to 0. t-stat: difference between mean divided by standard error p-value
+
+```{r load-movies-data,fig.height=5, fig.width=8 }
+movies <- read_csv(here::here("data", "movies.csv"))
+#glimpse(movies)
+
+movies_2 <- movies %>% 
+  group_by(director) %>% 
+  filter(director %in% c("Steven Spielberg","Tim Burton")) %>% 
+  summarise(rating,mean_rating = mean(rating), #find datapoints needed for t distribution.
+         sd_rating = sd(rating),
+         count=n(),
+         t_critical =qt(0.975,count-1),
+         se_rating = sd(rating)/sqrt(count),
+         margin_of_error = t_critical*se_rating, 
+         rating_low = mean_rating - margin_of_error, 
+         rating_high = mean_rating +margin_of_error,
+         highest_rating =max(rating),
+         lowest_rating = min(rating))
+
+#movies_mean<-count(movies, mean_rating) 
+#movies_mean
+movies_2
+
+  ggplot(movies_2, aes(x = mean_rating,y = director))+
+  geom_point() +
+  geom_errorbar(data = movies_2,aes(xmin = rating_low, xmax=rating_high,height=0.2), size = 1, height = 0.1) +
+  labs(x = "Mean IMDB Rating",
+       y = NULL,
+       title = "Mean IMDB Rating for Spielburg and Burton",
+       subtitle="95% confidence interval overlap") +
+  geom_rect(aes(xmin=7.27, xmax= 7.33, ymin=0, ymax=3),
+            fill = "grey70",
+            alpha = 0.5)+
+  theme_minimal(base_size = 16) #+
+  #geom_text(aes(x= mean_rating, label = labels), vjust=0, nudge_y =0.05,overlap=FALSE) +
+  #geom_text(label=mean) 
+  #theme_bw()
+
+```
+
+As there is an overlap in the confidence interval, we will now need to use t test for further examination
+
+-   With a p-value of 1%\<5%, we can reject the null hypothesis that Spielburg and Burton have the same mean rating.
+
+-   We should use both the `t.test` command and the `infer` package to simulate from a null distribution, where you assume zero difference between the two.
+
+-   By using the infer package, we can simulate from a null distribution and compute p-values (with get_p\_value()). As seen below, the p-value from the null distribution gives 0.4%\<1%\<5%. Thus, we can infer that the null hypothesis can be rejected.
+
+-   We can conclude that the difference in mean ratings for the two directors is unlikely to be zero.
+
+```{r, fig.height=5, fig.width=8}
+t.test(rating~director, data = movies_2) #find t-stat, p-value
+
+#simulating a null world using infer()
+set.seed(1234)
+ratings_in_null_world <- movies_2 %>%
+  specify(rating~director) %>% # we want to look at ratings of directors
+  hypothesize(null = "independence") %>%  # hypothesize that the difference is 0
+  generate(reps=1000, type="permute") %>% # create a bunch of simulated samples
+  calculate(stat="diff in means", order = c("Steven Spielberg","Tim Burton")) # find difference in means of each sample. 
+
+#ratings_in_null_world visualize, with shaded p value
+ratings_in_null_world %>% 
+  visualize() +
+  shade_p_value(obs_stat = 0.64, direction = "two-sided")
+
+# finding p-value of simulated distribution
+p_value <- ratings_in_null_world%>%
+  get_p_value(obs_stat = .64, direction = "two-sided")
+p_value
+
 ```
