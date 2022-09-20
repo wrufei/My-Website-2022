@@ -94,7 +94,7 @@ params:
       - image: pic04.jpg
         subtitle: Share of Renewable Energy Production
         title: Data Analytic Project Showcase II
-        url: blogs/project2
+        url: blogs/project2b
       - image: pic05.jpg
         subtitle: Excess Rentals in TfL Bike Sharing
         title: Data Analytic Project Showcase III

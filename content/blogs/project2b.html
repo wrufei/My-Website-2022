@@ -1,0 +1,185 @@
+---
+categories:  
+- ""    #the front matter should be like the one found in, e.g., blog2.md. It cannot be like the normal Rmd we used
+- ""
+date: "2022-09-18"
+description: Share of Renewable Energy Production in the World # the title that will show up once someone gets to this page
+draft: false
+image: "" # save picture in \static\img\blogs. Acceptable formats= jpg, jpeg, or png . Your iPhone pics wont work
+
+keywords: ""
+slug: project2b # slug is the shorthand URL address... no spaces plz
+title: Share of Renewable Energy Production in the World
+---
+
+
+
+<p>The National Bureau of Economic Research (NBER) has a a very interesting dataset on the adoption of about 200 technologies in more than 150 countries since 1800. This is the <a href="https://www.nber.org/research/data/cross-country-historical-adoption-technology">Cross-country Historical Adoption of Technology (CHAT) dataset</a>.</p>
+<p>The following is a description of the variables</p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>variable</strong></th>
+<th><strong>class</strong></th>
+<th><strong>description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>variable</td>
+<td>character</td>
+<td>Variable name</td>
+</tr>
+<tr class="even">
+<td>label</td>
+<td>character</td>
+<td>Label for variable</td>
+</tr>
+<tr class="odd">
+<td>iso3c</td>
+<td>character</td>
+<td>Country code</td>
+</tr>
+<tr class="even">
+<td>year</td>
+<td>double</td>
+<td>Year</td>
+</tr>
+<tr class="odd">
+<td>group</td>
+<td>character</td>
+<td>Group (consumption/production)</td>
+</tr>
+<tr class="even">
+<td>category</td>
+<td>character</td>
+<td>Category</td>
+</tr>
+<tr class="odd">
+<td>value</td>
+<td>double</td>
+<td>Value (related to label)</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>technology &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-07-19/technology.csv&#39;)
+
+#get all technologies
+labels &lt;- technology %&gt;% 
+  distinct(variable, label)
+
+# Get country names using &#39;countrycode&#39; package
+technology &lt;- technology %&gt;% 
+  filter(iso3c != &quot;XCD&quot;) %&gt;% 
+  mutate(iso3c = recode(iso3c, &quot;ROM&quot; = &quot;ROU&quot;),
+         country = countrycode(iso3c, origin = &quot;iso3c&quot;, destination = &quot;country.name&quot;),
+         country = case_when(
+           iso3c == &quot;ANT&quot; ~ &quot;Netherlands Antilles&quot;,
+           iso3c == &quot;CSK&quot; ~ &quot;Czechoslovakia&quot;,
+           iso3c == &quot;XKX&quot; ~ &quot;Kosovo&quot;,
+           TRUE           ~ country))
+
+#make smaller dataframe on energy
+energy &lt;- technology %&gt;% 
+  filter(category == &quot;Energy&quot;)
+
+# download CO2 per capita from World Bank using {wbstats} package
+# https://data.worldbank.org/indicator/EN.ATM.CO2E.PC
+co2_percap &lt;- wb_data(country = &quot;countries_only&quot;, 
+                      indicator = &quot;EN.ATM.CO2E.PC&quot;, 
+                      start_date = 1970, 
+                      end_date = 2022,
+                      return_wide=FALSE) %&gt;% 
+  filter(!is.na(value)) %&gt;% 
+  #drop unwanted variables
+  select(-c(unit, obs_status, footnote, last_updated))
+
+# get a list of countries and their characteristics
+# we just want to get the region a country is in and its income level
+countries &lt;-  wb_cachelist$countries %&gt;% 
+  select(iso3c,region,income_level)</code></pre>
+<p>This is a very rich data set, not just for energy and CO2 data, but for many other technologies. In our case, the emphasis is on data manipulation, rather than making the graphs gorgeous.</p>
+<p>Firstly, we produce a graph with the countries with the highest and lowest % contribution of renewables in energy production. This is made up of <code>elec_hydro</code>, <code>elec_solar</code>, <code>elec_wind</code>, and <code>elec_renew_other</code>. We use the <em>patchwork</em> package to assemble the two charts next to each other.</p>
+<pre class="r"><code>library(patchwork)
+
+en_new &lt;- energy %&gt;%  #filter energy dataset for year + create new variable for all renewable energy
+  filter(year == 2019) %&gt;% 
+  group_by(country, variable) %&gt;% 
+  summarise(count = sum(value)) %&gt;% 
+  ungroup() %&gt;% 
+  pivot_wider(names_from = &quot;variable&quot;, values_from = &quot;count&quot;) %&gt;% 
+  mutate(renew_en = elec_hydro + elec_solar + elec_wind + elec_renew_other)
+
+en_new[is.na(en_new)] &lt;- 0 #establish renewable energy usage as a percentage of energy as a whole
+en_new &lt;- en_new %&gt;% 
+mutate(percent = renew_en/ elecprod*100) %&gt;% 
+arrange(desc(percent)) %&gt;% 
+filter(renew_en != 0, percent != Inf)
+en_new</code></pre>
+<pre><code>## # A tibble: 196 × 13
+##    country       elec_…¹ elec_…² elec_…³ elec_…⁴ elec_…⁵ elec_…⁶ elec_…⁷ elec_…⁸
+##    &lt;chr&gt;           &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Albania             0 0         5.15        0 0        0        0.022 0      
+##  2 Nepal               0 0         5.33        0 0        0        0.08  0.014  
+##  3 Lesotho             0 0         0.541       0 0        0        0.001 0      
+##  4 Bhutan              0 0         6.61        0 4.67e-5  0        0.001 0.001  
+##  5 Paraguay            0 0        48.9         0 1.88e-3  0.886    0     0      
+##  6 Iceland             0 0        13.3         0 2.82e-3  5.93     0     0.00642
+##  7 Congo - Kins…       0 0.00246  11.0         0 1.30e-3  0.0290   0.01  0      
+##  8 Ethiopia            0 0        14.0         0 5.41e-3  0.0294   0.02  0.533  
+##  9 Central Afri…       0 0         0.15        0 1   e-3  0        0     0      
+## 10 Costa Rica          0 0         7.75        0 9.02e-2  1.68     0.076 1.80   
+## # … with 186 more rows, 4 more variables: elecprod &lt;dbl&gt;, elec_cons &lt;dbl&gt;,
+## #   renew_en &lt;dbl&gt;, percent &lt;dbl&gt;, and abbreviated variable names ¹​elec_coal,
+## #   ²​elec_gas, ³​elec_hydro, ⁴​elec_nuc, ⁵​elec_oil, ⁶​elec_renew_other,
+## #   ⁷​elec_solar, ⁸​elec_wind</code></pre>
+<pre class="r"><code>#create plot 1 for highest % of countries with renewable energy
+c2p1 &lt;- ggplot(en_new %&gt;% slice_max(order_by = percent, n = 20)) + 
+        aes(x = percent, y = fct_reorder(country, percent), fill = country) + 
+        geom_col() + 
+        labs(title = &quot;Highest Percentage of Renewables&quot;, x = NULL, y = NULL) +
+        theme(legend.position = &quot;None&quot;)
+
+
+#create plot 2 for lowest % of countries with renewable energy
+dfsid&lt;- en_new %&gt;%
+  slice_min(order_by = percent, n=20)
+
+
+c2p2 &lt;- ggplot(dfsid) + 
+        aes(x= percent, y=fct_reorder(country, percent), fill = country) + 
+        geom_col() + 
+        labs(title =&#39;Lowest Percentage of Renewables&#39;,y = NULL, x = NULL) +
+        theme(legend.position = &quot;None&quot;)
+
+#combining plots
+c2p1 + c2p2</code></pre>
+<p><img src="/blogs/project2b_files/figure-html/unnamed-chunk-1-1.png" width="888" style="display: block; margin: auto;" /></p>
+<p>Secondly, we produced an animation to explore the relationship between CO2 per capita emissions and the deployment of renewables.</p>
+<ul>
+<li>As the % of energy generated by renewables goes up, CO2 per capita emissions do seem to go down</li>
+</ul>
+<pre class="r"><code>library(gifski)
+library(png)
+
+new_co2_percap &lt;- merge(co2_percap, countries, by=&quot;iso3c&quot;) #merge all the data into one  dataset
+new_co2_percap &lt;- merge(new_co2_percap, en_new, by=&quot;country&quot;)
+
+library(gapminder)
+library(gganimate)
+library(av)
+library(tibble)
+data &lt;- new_co2_percap[,c(1,2,6,7,9,21)] #selecting columnns from above dataset
+library(rmarkdown)
+
+#plot and animate the graph
+ggplot(data, aes(x=percent, y=value, color=income_level)) + 
+  geom_point() + 
+  facet_wrap(~income_level, nrow = 2) + 
+  labs(title = &#39;Year:{round(frame_time, 0)}&#39;, 
+       x=&#39;% of Renewable Resources&#39;, 
+       y=&#39;CO2 Present Per Cap&#39;) + 
+  transition_time(date) + 
+  ease_aes(&#39;linear&#39;) +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/blogs/project2b_files/figure-html/unnamed-chunk-2-1.gif" style="display: block; margin: auto;" /></p>

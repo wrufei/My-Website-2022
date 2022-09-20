@@ -8,7 +8,7 @@ draft: false
 image: "" # save picture in \static\img\blogs. Acceptable formats= jpg, jpeg, or png . Your iPhone pics wont work
 
 keywords: ""
-slug: project2 # slug is the shorthand URL address... no spaces plz
+slug: project2b # slug is the shorthand URL address... no spaces plz
 title: Share of Renewable Energy Production in the World
 ---
 
@@ -125,11 +125,11 @@ en_new
 
 
 #create plot 1 for highest % of countries with renewable energy
-c2p1 <- ggplot(en_new %>% slice_max(order_by = percent, n = 20), 
-               aes(x = percent, y = fct_reorder(country, percent))) + 
+c2p1 <- ggplot(en_new %>% slice_max(order_by = percent, n = 20)) + 
+        aes(x = percent, y = fct_reorder(country, percent), fill = country) + 
         geom_col() + 
-        labs(title = "Highest and Lowest Percentage of Renewables", x = NULL, y = NULL)
-c2p1
+        labs(title = "Highest Percentage of Renewables", x = NULL, y = NULL) +
+        theme(legend.position = "None")
 
 
 #create plot 2 for lowest % of countries with renewable energy
@@ -137,10 +137,11 @@ dfsid<- en_new %>%
   slice_min(order_by = percent, n=20)
 
 
-c2p2 <- ggplot(dfsid, aes(x= percent, y=fct_reorder(country, percent))) + 
+c2p2 <- ggplot(dfsid) + 
+        aes(x= percent, y=fct_reorder(country, percent), fill = country) + 
         geom_col() + 
-        labs(title ='graph2',y = NULL, x = NULL)
-c2p2
+        labs(title ='Lowest Percentage of Renewables',y = NULL, x = NULL) +
+        theme(legend.position = "None")
 
 #combining plots
 c2p1 + c2p2
