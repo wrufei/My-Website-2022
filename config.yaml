@@ -74,8 +74,8 @@ params:
      # - name: Elements
       #  url: elements.html
     menu: Menu
-    subtitle: HTML5 Up
-    title: Forty
+    subtitle: PORTFOLIO WEBSITE
+    title: RUFEI 
   tiles:
     enable: yes
     showcase:
