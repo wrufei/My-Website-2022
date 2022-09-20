@@ -13,7 +13,7 @@ title: University Life in London
 ---
 ## LBS Early Career Programme Orientation Day
 ```{r orientation, echo = FALSE, out.width = "1200px", out.height= "675px"}
-knitr::include_graphics("/img/henley.jpg",error=FALSE)
+knitr::include_graphics("/img/orientation.jpg",error=FALSE)
 ```
 
 ## MAM Programme Away Day
@@ -26,28 +26,29 @@ knitr::include_graphics("/img/splash3.jpg",error=FALSE)
 
 ## Rowing Trips with Friends
 Henley on Thames
-```{r rowing, echo = FALSE, out.width = "1200px", out.height= "675px"}
+```{r rowing1, echo = FALSE, out.width = "1200px", out.height= "675px"}
 knitr::include_graphics("/img/henley.jpg",error=FALSE)
 ```
 Regent's Park Canals and Little Venice
-```{r rowing, echo = FALSE, out.width = "1200px", out.height= "675px"}
-knitr::include_graphics("/img/pic13.jpg",error=FALSE)
+```{r rowing2, echo = FALSE, out.width = "1200px", out.height= "675px"}
+knitr::include_graphics("/img/canal1.jpg",error=FALSE)
+knitr::include_graphics("/img/canal2.jpg",error=FALSE)
 ```
 
 ## Multiple Visits to Regent's Park
 Sunset at the Regent's Park
 ```{r regents park, echo = FALSE, out.width = "1200px", out.height= "675px"}
-knitr::include_graphics("/img/pic15.jpg",error=FALSE)
+knitr::include_graphics("/img/sunset.jpg",error=FALSE)
 ```
 Evening at the top of the Primrose Hill
 ```{r primrose hill, echo = FALSE, out.width = "1200px", out.height= "675px"}
-knitr::include_graphics("/img/pic15.jpg",error=FALSE)
+knitr::include_graphics("/img/primrose.jpg",error=FALSE)
 ```
 Rounder Session with Friends
 ```{r rounders, echo = FALSE, out.width = "1200px", out.height= "675px"}
-knitr::include_graphics("/img/pic15.jpg",error=FALSE)
+knitr::include_graphics("/img/rounders.jpg",error=FALSE)
 ```
 Early Morning Tennis Session
 ```{r tennis, echo = FALSE, out.width = "1200px", out.height= "675px"}
-knitr::include_graphics("/img/pic15.jpg",error=FALSE)
+knitr::include_graphics("/img/tennis.jpg",error=FALSE)
 ```
