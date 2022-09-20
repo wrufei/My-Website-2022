@@ -5,34 +5,49 @@ categories:
 date: "2022-09-18"
 description: University Life in London # the title that will show up once someone gets to this page
 draft: false
-image: "" # save picture in \static\img\blogs. Acceptable formats= jpg, jpeg, or png . Your iPhone pics wont work
+image: "unilife.jpg" # save picture in \static\img\blogs. Acceptable formats= jpg, jpeg, or png . Your iPhone pics wont work
 
 keywords: ""
 slug: uni_life_london  # slug is the shorthand URL address... no spaces plz
 title: University Life in London
 ---
-
-## Snowboarding
-
-```{r snowbaording, echo = FALSE, out.width = "1200px", out.height= "675px"}
-knitr::include_graphics("/img/pic12.jpg",error=FALSE)
-knitr::include_graphics("/img/pic16.jpg",error=FALSE)
+## LBS Early Career Programme Orientation Day
+```{r orientation, echo = FALSE, out.width = "1200px", out.height= "675px"}
+knitr::include_graphics("/img/henley.jpg",error=FALSE)
 ```
 
-## Skateboarding
+## MAM Programme Away Day
+Creating Outdoor Games for Disabled Children in the Islington Community
+```{r away day, echo = FALSE, out.width = "1200px", out.height= "675px"}
+knitr::include_graphics("/img/splash1.jpg",error=FALSE)
+knitr::include_graphics("/img/splash2.jpg",error=FALSE)
+knitr::include_graphics("/img/splash3.jpg",error=FALSE)
+```
 
-```{r skateboarding, echo = FALSE, out.width = "1200px", out.height= "675px"}
+## Rowing Trips with Friends
+Henley on Thames
+```{r rowing, echo = FALSE, out.width = "1200px", out.height= "675px"}
+knitr::include_graphics("/img/henley.jpg",error=FALSE)
+```
+Regent's Park Canals and Little Venice
+```{r rowing, echo = FALSE, out.width = "1200px", out.height= "675px"}
 knitr::include_graphics("/img/pic13.jpg",error=FALSE)
 ```
 
-## Drumming
-
-```{r drumming, echo = FALSE, out.width = "1200px", out.height= "675px"}
+## Multiple Visits to Regent's Park
+Sunset at the Regent's Park
+```{r regents park, echo = FALSE, out.width = "1200px", out.height= "675px"}
 knitr::include_graphics("/img/pic15.jpg",error=FALSE)
 ```
-
-## Ukulele
-
-```{r ukulele, echo = FALSE, out.width = "1200px", out.height= "675px"}
-knitr::include_graphics("/img/pic14.jpg",error=FALSE)
+Evening at the top of the Primrose Hill
+```{r primrose hill, echo = FALSE, out.width = "1200px", out.height= "675px"}
+knitr::include_graphics("/img/pic15.jpg",error=FALSE)
+```
+Rounder Session with Friends
+```{r rounders, echo = FALSE, out.width = "1200px", out.height= "675px"}
+knitr::include_graphics("/img/pic15.jpg",error=FALSE)
+```
+Early Morning Tennis Session
+```{r tennis, echo = FALSE, out.width = "1200px", out.height= "675px"}
+knitr::include_graphics("/img/pic15.jpg",error=FALSE)
 ```

@@ -12,6 +12,8 @@ slug: project2 # slug is the shorthand URL address... no spaces plz
 title: Share of Renewable Energy Production in the World
 ---
 
+## Importing and Cleaning Data
+
 The National Bureau of Economic Research (NBER) has a a very interesting dataset on the adoption of about 200 technologies in more than 150 countries since 1800. This is the [Cross-country Historical Adoption of Technology (CHAT) dataset](https://www.nber.org/research/data/cross-country-historical-adoption-technology).
 
 The following is a description of the variables
