@@ -59,10 +59,10 @@ params:
   name: 
   navigation:
     button1:
-      - name: Get Started
+      - name: About Me
         url: blogs/about_me
     #button2:
-     # - name: My CV
+     # - name: About ME
      #   url: '#'
     links:
       - name: Home
@@ -108,5 +108,5 @@ params:
     buttonText: Get Started
     enable: yes
     subtitle: ""
-    title: Massa libero
+    title: My Blogs Overview
     url: blogs
