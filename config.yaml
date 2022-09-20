@@ -107,6 +107,6 @@ params:
   two:
     buttonText: Get Started
     enable: yes
-    subtitle: ""
+    subtitle: "Blogs about my academic background, work experience, hobbies, past projects and my university life in London. Stay posted!"
     title: My Blogs Overview
     url: blogs

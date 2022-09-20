@@ -3,7 +3,7 @@ categories:
 - ""
 - ""
 date: "2022-09-18"
-description: Hi, My Name is Rufei Wang
+description: My education background, work experience and hobbies.
 draft: false
 image: "rufeiwang.jpg"
 keywords: "Education, Work Experience, Curriculum Vitae"
@@ -21,7 +21,7 @@ I have been actively exploring career paths in various industries, including con
 
 ## Hobbies
 
-I am sporty and love outdoor activities. The sports that I enjoy doing include snowboarding, skiing, skateboarding, squash, basketball, cycling and kayaking. I am also into music. I started playing the piano when I was a child and in high school I pivoted my interest towards percussion. I am now an acoustic drum player and self-taught Ukulele player. Please see more about my hobbies and interests [here](https://wrufei0525.netlify.app/blogs/hobbies_and_lifestyle/)!
+I am sporty and love outdoor activities. The sports that I enjoy doing include snowboarding, skiing, skateboarding, squash, basketball, cycling and kayaking. I am also into music. I started playing the piano when I was a child and in high school I pivoted my interest towards percussion. I am now an acoustic drum player and self-taught Ukulele player. Please see more about my hobbies and interests [here](https://wrufei0525.netlify.app/blogs/hobbies/)!
 
 ## Curriculum Vitae
 
